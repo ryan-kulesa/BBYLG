@@ -88,7 +88,7 @@ body {
 }
 
 /* DataTable Custom Styles - Overriding DataTables defaults */
-#product-table {
+table {
     width: 100% !important; /* Ensure table uses container's width */
     min-width: 1200px; /* Set a minimum width for column resizing to work effectively */
     border-spacing: 0 !important;
@@ -96,15 +96,15 @@ body {
     background-color: white;
 }
 
-#product-table th, 
-#product-table td {
+table th, 
+table td {
     padding: 7px 20px 7px 0px !important; /* Remove excessive padding and inline styles */
     border-bottom: 1px solid #eee;
     margin: 0 !important;
     white-space: nowrap; /* Prevent wrapping in most cells for easier column resizing */
 }
 
-#product-table thead th {
+table thead th {
     background-color: #f9f9f9;
     color: #333;
     font-weight: bold;
@@ -113,7 +113,7 @@ body {
     cursor: pointer;
 }
 
-#product-table tbody tr:nth-child(odd) {
+table tbody tr:nth-child(odd) {
     background-color: #fcfcfc;
 }
 
