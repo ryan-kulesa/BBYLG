@@ -1,73 +1,143 @@
-/* --- General Page & Container Styling --- */
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+/* Custom CSS */
+
+/* Best Buy Colors:
+   Main: White/Dark Gray
+   Accents: Blue (#0046be), Yellow (#ffc600)
+*/
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
     padding: 20px;
-  }
-  .container {
-    max-width: 95%; 
-    margin: 0 auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* --- Table Core Styling (Assuming ID='productTable') --- */
-  table {
+    background-color: #f4f4f4;
+}
+
+/* Global Styles */
+.main-header {
+    text-align: center;
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #0046be; /* Blue Accent */
+    padding-bottom: 10px;
+}
+
+/* Layout Container for Sidebar and Table */
+.main-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* Sidebar Styling (Filter) */
+.sidebar {
+    width: 250px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex-shrink: 0; /* Keep sidebar from shrinking */
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #ffc600; /* Yellow Accent */
+    padding-bottom: 5px;
+    color: #333;
+}
+
+#toggle-available-btn {
     width: 100%;
-    border-collapse: collapse; 
-    margin: 20px 0;
-    /* Remove the old inline styles */
-    border-spacing: 0 !important; 
-  }
-  
-  /* Table Header Styling */
-  table thead th {
-    cursor: pointer; /* Hint for sorting */
-    background-color: #3498db; /* Blue header */
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #0046be; /* Blue Accent Button */
     color: white;
-    padding: 10px 15px;
-    text-align: left;
-    border-bottom: 2px solid #2980b9;
-    font-weight: bold;
-  }
-  
-  /* Table Body Styling */
-  table tbody td {
-    padding: 8px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+#toggle-available-btn:hover {
+    background-color: #003699;
+}
+
+.filter-group {
+    margin-bottom: 10px;
+    padding: 5px;
     border-bottom: 1px solid #eee;
-    white-space: nowrap; /* Prevents text wrap unless absolutely necessary */
-  }
-  
-  /* Zebra Striping (Alternating row colors) */
-  table tbody tr:nth-child(even) {
+}
+
+.filter-group:last-child {
+    border-bottom: none;
+}
+
+.filter-group label {
+    display: block;
+    cursor: pointer;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Main Content Area (Table Container) */
+.content-area {
+    flex-grow: 1;
+    overflow-x: auto; /* Makes the table scrollable horizontally if it exceeds the screen width */
+    max-width: calc(100% - 270px); /* Adjust max-width for container (screen width - sidebar width - gap) */
+}
+
+/* DataTable Custom Styles - Overriding DataTables defaults */
+#product-table {
+    width: 100% !important; /* Ensure table uses container's width */
+    min-width: 1200px; /* Set a minimum width for column resizing to work effectively */
+    border-spacing: 0 !important;
+    font-family: inherit !important;
+    background-color: white;
+}
+
+#product-table th, 
+#product-table td {
+    padding: 7px 20px 7px 0px !important; /* Remove excessive padding and inline styles */
+    border-bottom: 1px solid #eee;
+    margin: 0 !important;
+    white-space: nowrap; /* Prevent wrapping in most cells for easier column resizing */
+}
+
+#product-table thead th {
     background-color: #f9f9f9;
-  }
-  
-  table tbody tr:hover {
-    background-color: #e0f2f7; /* Light hover effect */
-  }
-  
-  /* Styling for the thumbnail image column */
-  table img {
-      max-width: 50px;
-      height: 50px;
-      object-fit: contain;
-      border-radius: 4px;
-      display: block; 
-      margin: 0 auto;
-  }
-  
-  /* --- DataTables Control Styling --- */
-  div.dataTables_wrapper {
-      margin-top: 20px;
-  }
-  div.dataTables_wrapper div.dataTables_filter {
-      text-align: right;
-      margin-bottom: 10px;
-  }
-  div.dataTables_wrapper div.dataTables_info {
-      padding-top: 0.85em;
-      font-size: 0.9em;
-  }
+    color: #333;
+    font-weight: bold;
+    border-top: 2px solid #ffc600; /* Yellow accent line on top */
+    border-bottom: 2px solid #0046be !important; /* Blue accent line on bottom */
+    cursor: pointer;
+}
+
+#product-table tbody tr:nth-child(odd) {
+    background-color: #fcfcfc;
+}
+
+/* DataTables Search Input and Length controls */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #0046be; /* Blue border for search */
+    padding: 5px;
+    border-radius: 3px;
+    margin-left: 0.5em;
+    width: 250px;
+}
+
+/* DataTables Info Text (e.g., Showing 1 to X of Y entries) */
+.dataTables_wrapper .dataTables_info {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Specific Column Styling */
+.thumbnail-cell img {
+    max-width: 100px; /* Size the thumbnail images */
+    height: auto;
+    display: block;
+    border: 1px solid #ddd;
+    padding: 2px;
+}
