@@ -1,0 +1,73 @@
+/* --- General Page & Container Styling --- */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+  }
+  .container {
+    max-width: 95%; 
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* --- Table Core Styling (Assuming ID='productTable') --- */
+  table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin: 20px 0;
+    /* Remove the old inline styles */
+    border-spacing: 0 !important; 
+  }
+  
+  /* Table Header Styling */
+  table thead th {
+    cursor: pointer; /* Hint for sorting */
+    background-color: #3498db; /* Blue header */
+    color: white;
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 2px solid #2980b9;
+    font-weight: bold;
+  }
+  
+  /* Table Body Styling */
+  table tbody td {
+    padding: 8px 15px;
+    border-bottom: 1px solid #eee;
+    white-space: nowrap; /* Prevents text wrap unless absolutely necessary */
+  }
+  
+  /* Zebra Striping (Alternating row colors) */
+  table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tbody tr:hover {
+    background-color: #e0f2f7; /* Light hover effect */
+  }
+  
+  /* Styling for the thumbnail image column */
+  table img {
+      max-width: 50px;
+      height: 50px;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block; 
+      margin: 0 auto;
+  }
+  
+  /* --- DataTables Control Styling --- */
+  div.dataTables_wrapper {
+      margin-top: 20px;
+  }
+  div.dataTables_wrapper div.dataTables_filter {
+      text-align: right;
+      margin-bottom: 10px;
+  }
+  div.dataTables_wrapper div.dataTables_info {
+      padding-top: 0.85em;
+      font-size: 0.9em;
+  }
